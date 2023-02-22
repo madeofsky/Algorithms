@@ -5,15 +5,14 @@ class BinarySearchKotlin {
 
     private var searchCount: Int = 0
 
-    fun findValue(
-        sortedList: List<Int>,
-        targetValue: Int,
+    fun <T: Comparable<T>> findValue(
+        sortedList: List<T>,
+        targetValue: T,
         startIndex: Int = 0,
         endIndex: Int = sortedList.size - 1
     ): Map<Int, Int>? {
 
         val midIndex = (startIndex + endIndex) / 2
-
         val midValue = sortedList[midIndex]
 
         if (startIndex > endIndex) return null

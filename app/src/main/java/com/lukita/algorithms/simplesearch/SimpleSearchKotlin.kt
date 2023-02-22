@@ -3,7 +3,7 @@ package com.lukita.algorithms.simplesearch
 // O(n) Algorithm
 class SimpleSearchKotlin {
 
-    fun findValue(sortedList: List<Int>, targetValue: Int): Map<Int, Int>? {
+    fun <T: Comparable<T>>findValue(sortedList: List<T>, targetValue: T): Map<T, Int>? {
         var searchCount = 0
 
         for (element in sortedList) {
@@ -13,6 +13,14 @@ class SimpleSearchKotlin {
                 return mapOf(Pair(element, searchCount))
             }
         }
+
+//        forEach approach
+//        sortedList.forEach { element ->
+//            searchCount++
+//            if (element == targetValue) {
+//                return mapOf(Pair(element, searchCount))
+//            }
+//        }
 
         return null
     }
