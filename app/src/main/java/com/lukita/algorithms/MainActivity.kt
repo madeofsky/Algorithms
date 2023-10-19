@@ -15,16 +15,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonBinaryTree.setOnClickListener {
-            BinaryTree().createStaticABCBinaryTree()
+        binding.buttonBinaryTreeWithIntegers.setOnClickListener {
+            val intTreeElements = listOf(30, 32, 1, 2, 6, 9, 15, 22).sorted()
+            BinaryTree().create(intTreeElements)
         }
 
-        binding.buttonBinaryTreeWithValues.setOnClickListener {
-            val treeElements = listOf(30, 32, 1, 2, 6, 9, 15, 22).sorted()
-            val abcTreeElements = listOf("d", "e", "b", "f", "a", "c").sorted()
-
-            BinaryTree().createBinaryTreeGivenList(treeElements)
-            BinaryTree().createBinaryTreeGivenList(abcTreeElements)
+        binding.buttonBinaryTreeWithString.setOnClickListener {
+            val stringTreeElements = listOf("d", "e", "b", "f", "a", "c").sorted()
+            BinaryTree().create(stringTreeElements)
         }
     }
 }

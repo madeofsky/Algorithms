@@ -7,17 +7,17 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonBinaryTree"
+        android:id="@+id/buttonBinaryTreeWithIntegers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Binary Tree ABC"/>
+        android:text="Binary Tree with Integers"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonBinaryTreeWithValues"
+        android:id="@+id/buttonBinaryTreeWithString"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Binary Tree with Values"/>
+        android:text="Binary Tree with Strings"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
