@@ -62,8 +62,8 @@ class BinaryTree {
         return treeRoot
     }
 
-    private fun <T>invertBinaryTree(root: Node<T>?) {
-        if (root == null) return
+    private fun <T>invertBinaryTree(root: Node<T>?) : Node<T>? {
+        if (root == null) return null
 
         val temp = root.left
         root.left = root.right
@@ -71,6 +71,8 @@ class BinaryTree {
 
         invertBinaryTree(root.left)
         invertBinaryTree(root.right)
+
+        return root
     }
 
     companion object {
