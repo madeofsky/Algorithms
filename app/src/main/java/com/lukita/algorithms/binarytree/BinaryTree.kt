@@ -2,6 +2,7 @@ package com.lukita.algorithms.binarytree
 
 import com.lukita.algorithms.binarytree.inorder.InOrderTraversal
 import com.lukita.algorithms.binarytree.model.Node
+import com.lukita.algorithms.binarytree.postorder.PostOrderTraversal
 import com.lukita.algorithms.binarytree.preorder.PreOrderTraversal
 import com.lukita.algorithms.binarytree.utils.printTree
 
@@ -20,8 +21,8 @@ class BinaryTree {
     In a postorder traversal, you visit the left subtree first, then the right subtree, and finally the current node.
 
              a              inOrder: D, B, E, A, C, F
-           /   \            preOrder: A, B, D, E, C, F
-          b     c           postOrder: D, E, B, F, C, A
+           /   \            postOrder: D, E, B, F, C, A
+          b     c           preOrder: A, B, D, E, C, F
         /   \    \
        d     e    f
 
@@ -32,14 +33,14 @@ class BinaryTree {
 
         println(TREE_ELEMENTS + elementsList)
 
-        // Binary Tree Elements read inOrder, from left to root to right
         printTree(IN_ORDER_ELEMENTS, InOrderTraversal().order(balancedTree))
 
-        // Binary Tree Elements read from the Depth left child from root
+        printTree(POST_ORDER_ELEMENTS, PostOrderTraversal().order(balancedTree))
+
         printTree(PRE_ORDER_ELEMENTS, PreOrderTraversal().order(balancedTree))
 
-        // Binary Tree Elements read recursively from the Depth left child from root
-        printTree(PRE_ORDER_RECURSIVE_ELEMENTS, PreOrderTraversal().orderRecursive(balancedTree))
+        invertBinaryTree(balancedTree)
+        println(INVERTED_TREE + balancedTree)
     }
 
     private fun <T>createBalancedBinaryTree(sortedList: List<T>?) : Node<T>? {
@@ -61,10 +62,23 @@ class BinaryTree {
         return treeRoot
     }
 
+    private fun <T>invertBinaryTree(root: Node<T>?) {
+        if (root == null) return
+
+        val temp = root.left
+        root.left = root.right
+        root.right = temp
+
+        invertBinaryTree(root.left)
+        invertBinaryTree(root.right)
+    }
+
     companion object {
         private const val TREE_ELEMENTS = "Tree Elements - "
         private const val PRE_ORDER_ELEMENTS = "Pre Order values - "
         private const val PRE_ORDER_RECURSIVE_ELEMENTS = "Pre Order recursive values - "
         private const val IN_ORDER_ELEMENTS = "In Order values - "
+        private const val POST_ORDER_ELEMENTS = "Post Order values - "
+        private const val INVERTED_TREE = "Inverted Tree - "
     }
 }
