@@ -20,4 +20,11 @@
         android:layout_gravity="center"
         android:text="Binary Tree with Strings"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLruCache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="LruCache"/>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

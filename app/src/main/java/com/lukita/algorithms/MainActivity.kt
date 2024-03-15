@@ -1,14 +1,18 @@
 package com.lukita.algorithms
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import com.lukita.algorithms.binarytree.BinaryTree
 import com.lukita.algorithms.databinding.ActivityMainBinding
+import com.lukita.algorithms.lrucache.LRUCacheSimplifiedKotlin
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,6 +27,14 @@ class MainActivity : AppCompatActivity() {
         binding.buttonBinaryTreeWithString.setOnClickListener {
             val stringTreeElements = listOf("d", "e", "b", "f", "a", "c").sorted()
             BinaryTree().create(stringTreeElements)
+        }
+
+        binding.buttonLruCache.setOnClickListener {
+            val lruObject = LRUCacheSimplifiedKotlin(2)
+            lruObject.put(1,1)
+            lruObject.put(2,2)
+            lruObject.get(1)
+            lruObject.put(3,3)
         }
     }
 }
